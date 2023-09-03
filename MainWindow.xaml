@@ -1,0 +1,408 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProizbodPrakt"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:System="clr-namespace:System;assembly=mscorlib" x:Class="ProizbodPrakt.MainWindow"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="600" Width="1000">
+    <Grid x:Name="Panel" Background="#e9eef2">
+        <Border x:Name="Border_1" Background="#cde3f7" Margin="205,71,213.6,80.4"  CornerRadius="20" MinHeight="200" HorizontalAlignment="Center" VerticalAlignment="Center" Width="375" Height="219" Visibility="Hidden">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="30" Color="#bcc6cf" ShadowDepth="0"/>
+            </Border.Effect>
+
+            <StackPanel>
+                <TextBlock Text="Авторизация" FontWeight="Bold" FontSize="20" Padding="40 20 20 0" HorizontalAlignment="Center"/>
+                <TextBox x:Name="login" materialDesign:HintAssist.Hint="Введите Логин" Margin="15 0 10 0" Style="{StaticResource ResourceKey=MaterialDesignFloatingHintTextBox}" />
+                <PasswordBox x:Name="Pass" PasswordChar="*" materialDesign:HintAssist.Hint="Введите Пароль" Margin="15 0 10 0" Style="{StaticResource ResourceKey=MaterialDesignFloatingHintPasswordBox}" />
+                <Button x:Name="Avtoz" Content="Авторизоваться" Background="#478ac9" Margin="60 15 60 10 " Click="Avtoz_Click"/>
+                <Button HorizontalAlignment="Left" Margin="128 0 0 0" Content="Регистарция" Style="{StaticResource MaterialDesignFlatLightButton}" Click="Button_Click"/>
+            </StackPanel>
+        </Border>
+        <Border x:Name="Border_2" Background="#cde3f7" Margin="220,81,250.6,114.4"  CornerRadius="20" MinHeight="200" VerticalAlignment="Center" HorizontalAlignment="Center" Height="275" Width="423" Visibility="Hidden">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="30" Color="#bcc6cf" ShadowDepth="0"/>
+            </Border.Effect>
+
+            <StackPanel>
+                <TextBlock Text="Регистрация" FontWeight="Bold" FontSize="20" Padding="20 20 20 0" HorizontalAlignment="Center"/>
+                <TextBox x:Name="FIO" materialDesign:HintAssist.Hint="Введите ФИО" Margin="15 0 10 0" Style="{StaticResource ResourceKey=MaterialDesignFloatingHintTextBox}" />
+                <TextBox x:Name="login_R" materialDesign:HintAssist.Hint="Введите Логин" Margin="15 0 10 0" Style="{StaticResource ResourceKey=MaterialDesignFloatingHintTextBox}" />
+                <PasswordBox x:Name="Pass_R1" PasswordChar="*" materialDesign:HintAssist.Hint="Введите Пароль" Margin="15 0 10 0" Style="{StaticResource ResourceKey=MaterialDesignFloatingHintPasswordBox}" />
+                <PasswordBox x:Name="Pass_R2" PasswordChar="*" materialDesign:HintAssist.Hint="Повторите Пароль" Margin="15 0 10 0" Style="{StaticResource ResourceKey=MaterialDesignFloatingHintPasswordBox}" />
+                <Button x:Name="Reg" Content="Зарегестрироваться" Background="#478ac9" Margin="60 15 60 10 " Click="Reg_Click"/>
+                <Button x:Name="vhod" HorizontalAlignment="Left" Content="Авторизация" Margin="150 -8 0 0" Style="{StaticResource MaterialDesignFlatLightButton}" Click="Button_Reg_Click"/>
+            </StackPanel>
+        </Border>
+        <Border x:Name="Border_Menu" Background="#cde3f7" Margin="10,25,33.6,32.4"  CornerRadius="20" MinHeight="200" BorderThickness="30,0,0,0">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="30" Color="#bcc6cf" ShadowDepth="0"/>
+            </Border.Effect>
+            <StackPanel>
+                <Border x:Name="Border_3" CornerRadius="20" Background="#cde3f7" Margin="0 0 0 0" Height="326" Width="231" HorizontalAlignment="Left">
+                    <StackPanel>
+                        <Label x:Name="status" Content="Статус" FontSize="18" Margin="15 0 0 0"/>
+                        <Button x:Name="Sotrudnik" Content="Сотрудник" Background="#478ac9" Margin="15,5,15.4,15" Click="Sotrudnik_Click" Height="45" FontSize="18"/>
+                        <Button x:Name="Zadachi" Content="Мои задачи" Background="#478ac9" Margin="15 0" RenderTransformOrigin="0.502,0.5" Click="Zadachi_Click" Height="45" FontSize="18"/>
+                        <Button x:Name="Izmen" Content="Изменения" Background="#478ac9" Margin="15" Height="45" FontSize="18" Click="Izmen_Click"/>
+                        <Button x:Name="Otchet" Content="Отчет" Background="#478ac9" Margin="15 0" Height="45" FontSize="18" Click="Otchet_Click_1"/>
+                        <Button x:Name="Exit" Content="Выход" Background="#CCC688E5" Margin="15 15" Click="Exit_Click" Height="45" FontSize="18"/>
+                    </StackPanel>
+                </Border>
+                <Border x:Name="Border_4" Background="#cde3f7" Margin="262,-310,365,0" RenderTransformOrigin="0.5,0.5" Height="485" Visibility="Hidden">
+                    <StackPanel>
+
+                        <Image Source="285641_id_user_icon.png" Height="218" VerticalAlignment="Top"/>
+                        <Button x:Name="create_infa" Background="#478ac9" Margin="40,55,32,15" Height="47" FontSize="16" Content="Добавить информацию" Click="create_infa_Click" HorizontalAlignment="Center" Visibility="Collapsed">
+                            <Button.Effect>
+                                <DropShadowEffect Color="#FF9D8B8B" BlurRadius="10" ShadowDepth="0"/>
+                            </Button.Effect>
+                        </Button>
+                        <Button x:Name="infa" Background="#478ac9" Margin="65,55,52.8,15" Height="48" FontSize="16" Content="Доп. информация" Click="infa_Click">
+                            <Button.Effect>
+                                <DropShadowEffect Color="#FF9D8B8B" BlurRadius="10" ShadowDepth="0"/>
+                            </Button.Effect>
+                        </Button>
+                        <Button x:Name="redactor_infa" Background="#478ac9" Margin="65,0,52.8,15" Height="47" FontSize="16" Content="Изменить Инф." Click="redactor_infa_Click">
+                            <Button.Effect>
+                                <DropShadowEffect Color="#FF9D8B8B" BlurRadius="10" ShadowDepth="0"/>
+                            </Button.Effect>
+                        </Button>
+                        <Button x:Name="redactor" Background="#478ac9" Margin="65,0,52.8,0" Height="48" FontSize="16" Content="Изменить пароль" Click="redactor_Click">
+                            <Button.Effect>
+                                <DropShadowEffect Color="#FF9D8B8B" BlurRadius="10" ShadowDepth="0"/>
+                            </Button.Effect>
+                        </Button>
+                    </StackPanel>
+                </Border>
+                <Border x:Name="Border_infa" Background="#cde3f7" CornerRadius="20" HorizontalAlignment="Right" Margin="0,-500,0,0" Width="328" Height="429" Visibility="Hidden" >
+                    <StackPanel Margin="0,0,-0.6,0">
+                        <Label x:Name="god" Content="Год рождения: " FontSize="18" Margin="20,30,62,0"/>
+                        <Label x:Name="obraz" Content="Образование: " FontSize="18" Margin="20,10,62,0"/>
+                        <Label x:Name="opit" Content="Опыт работы: " FontSize="18" Margin="20,10,62,0"/>
+                        <Label x:Name="srok" Content="Срок Тестирования: " FontSize="18" Margin="20 10 50 0"/>
+                        <DatePicker x:Name="date" Margin="155 -282 20 0" Height="22" FontSize="12">
+                            <DatePicker.Background>
+                                <ImageBrush/>
+                            </DatePicker.Background>
+                        </DatePicker>
+                        <ComboBox x:Name="obrazovanie" Background="#cde3f7" Margin="155 -200 20 0" Height="22" FontSize="11">
+                            <ComboBoxItem Content="Высшее"/>
+                            <ComboBoxItem Content="Среднее"/>
+                            <ComboBoxItem Content="Общее"/>
+                        </ComboBox>
+                        <ComboBox x:Name="staj_R" Background="#cde3f7" Margin="155 -117 20 0" Height="22" FontSize="11">
+                            <ComboBoxItem Content="Без опыта"/>
+                            <ComboBoxItem Content="1-2 год(а)"/>
+                            <ComboBoxItem Content="3-6 года"/>
+                            <ComboBoxItem Content="Больше 6 лет"/>
+                        </ComboBox>
+                        <Button x:Name="SAVE" Background="#478ac9" Margin="25,20,75.8,15" Height="47" FontSize="16" Content="Сохранить" Click="SAVE_Click_1">
+                            <Button.Effect>
+                                <DropShadowEffect Color="#FF9D8B8B" BlurRadius="10" ShadowDepth="0"/>
+                            </Button.Effect>
+                        </Button>
+                        <Button x:Name="end" Background="#478ac9" Margin="25,8,75.8,15" Height="47" FontSize="16" Content="Вернуться назад" Click="end_Click">
+                            <Button.Effect>
+                                <DropShadowEffect Color="#FF9D8B8B" BlurRadius="10" ShadowDepth="0"/>
+                            </Button.Effect>
+                        </Button>
+
+                    </StackPanel>
+                </Border>
+                <Border x:Name="Border_pass" Background="#cde3f7" CornerRadius="20" HorizontalAlignment="Right" Margin="0,-610,0,0" Width="360" Height="312" Visibility="Hidden" >
+                    <StackPanel>
+                        <TextBlock Text="Смена Пароля" FontWeight="Bold" FontSize="20" Padding="20 20 20 0" HorizontalAlignment="Center"/>
+                        <PasswordBox x:Name="Pass_S" PasswordChar="*" materialDesign:HintAssist.Hint="Cтарый пароль" Margin="45,0,10,0" FontSize="18" Style="{StaticResource ResourceKey=MaterialDesignFloatingHintPasswordBox}" />
+                        <PasswordBox x:Name="Pass_N" PasswordChar="*" materialDesign:HintAssist.Hint="Новый Пароль" Margin="45,0,10,0" FontSize="18" Style="{StaticResource ResourceKey=MaterialDesignFloatingHintPasswordBox}" />
+                        <Button x:Name="save" Background="#478ac9" Margin="45,20,35,0" Height="47" FontSize="16" Content="Сохранить" Click="save_Click">
+                            <Button.Effect>
+                                <DropShadowEffect Color="#FF9D8B8B" BlurRadius="10" ShadowDepth="0"/>
+                            </Button.Effect>
+                        </Button>
+                        <Button x:Name="end1" Background="#478ac9" Margin="45,15,35.2,15" Height="47" FontSize="16" Content="Вернуться назад" Click="end_Click">
+                            <Button.Effect>
+                                <DropShadowEffect Color="#FF9D8B8B" BlurRadius="10" ShadowDepth="0"/>
+                            </Button.Effect>
+                        </Button>
+                    </StackPanel>
+                </Border>
+                <Border x:Name="Border_5" Background="#cde3f7" CornerRadius="20" HorizontalAlignment="Right" Margin="0,-610,0,0" Width="365" Height="312" Visibility="Hidden" >
+                    <StackPanel>
+                        <Label x:Name="id" Content="ID: " FontSize="18" Margin="20,30,62,0"/>
+                        <Label x:Name="fio" Content="ФИО: " FontSize="18" Margin="20,10,10,0"/>
+                        <Label x:Name="log" Content="Логин: " FontSize="18" Margin="20 10 50 0"/>
+                        <Label x:Name="dolj" Content="Должность: " FontSize="18" Margin="20 10 50 0"/>
+                        <Label x:Name="zarp" Content="Зарплата: " FontSize="18" Margin="20 10 50 0"/>
+                        <Label x:Name="graf" Content="График: " FontSize="18" Margin="20 10 50 0"/>
+                    </StackPanel>
+                </Border>
+                <Border x:Name="Border_Zad" Background="#cde3f7" CornerRadius="20" Margin="284,-630,10,-150" Height="471" Visibility="Hidden">
+                    <StackPanel>
+                        <DataGrid x:Name="datagrid1" Height="288" Margin="30,10,82.6,0" ItemsSource="{Binding}">
+                            <DataGrid.Resources>
+                                <Style TargetType ="{x:Type DataGridColumnHeader}">
+                                    <Setter Property="Background" Value="#478ac9"/>
+                                    <Setter Property="BorderThickness"  Value="0 0 1 2"/>
+                                    <Setter Property="BorderBrush" Value="#7934bf"/>
+                                </Style>
+                            </DataGrid.Resources>
+                        </DataGrid>
+                        <Label Content="Id:" FontSize="18" Margin="20"/>
+                        <TextBox x:Name="id_Text" Margin="43,-70,540.6,0"  Width="28" Height="22"/>
+                        <RichTextBox x:Name="opisanie" Margin="180 -43 83 0" Height="133" Background="White"/>
+                        <Button x:Name="Viviod" Content="Описание" Background="#478ac9" Margin="15,-40,0,0" Click="Viviod_Click" HorizontalAlignment="Left" Width="132"/>
+                    </StackPanel>
+                </Border>
+                <Border x:Name="Border_izm" Background="#cde3f7" CornerRadius="20" Margin="284,-810,10,-150" Height="267" Visibility="Hidden">
+                    <StackPanel Height="475" Margin="0,0,-0.4,-207.8" VerticalAlignment="Top">
+                        <DataGrid x:Name="datagrid2" Height="200" Margin="25,10,25.6,0" ItemsSource="{Binding}">
+                            <DataGrid.Resources>
+                                <Style TargetType ="{x:Type DataGridColumnHeader}">
+                                    <Setter Property="Background" Value="#478ac9"/>
+                                    <Setter Property="BorderThickness"  Value="0 0 1 2"/>
+                                    <Setter Property="BorderBrush" Value="#7934bf"/>
+                                </Style>
+                            </DataGrid.Resources>
+                        </DataGrid>
+                    </StackPanel>
+                </Border>
+                <Border x:Name="Border_izm1" Background="#cde3f7" CornerRadius="20" Margin="284,-390,10,-150" Height="241" Visibility="Hidden">
+                    <StackPanel Height="475" Margin="0,0,-0.4,-207.8" VerticalAlignment="Top">
+                        <Label Content="Id Сотрудника:" FontSize="18" Margin="10"/>
+                        <TextBox x:Name="id_Text1" Margin="142,-50,455.6,0" Width="28" Height="23"/>
+                        <Label Content="Название:" FontSize="18" Margin="10,-6,19.6,20"/>
+                        <TextBox x:Name="N_Text" Margin="108,-75,428.6,0" Width="89" Height="25"/>
+                        <RichTextBox x:Name="opisanie1" Margin="242,-89,25.6,0" Height="220" Background="White"/>
+                        <Button x:Name="dobavit" Content="Добавить" Background="#478ac9" Margin="15,-120,0,0" HorizontalAlignment="Left" Width="132" Click="dobavit_Click"/>
+                        <Button x:Name="All_user" Content="Все пользователи" Background="#478ac9" Margin="15,-30,0,0" HorizontalAlignment="Left" Width="161" Click="All_user_Click"/>
+                    </StackPanel>
+                </Border>
+                <Border x:Name="Border_Otchet" Background="#cde3f7" CornerRadius="20" Margin="284,-780,10,-150" Height="314" Visibility="Hidden">
+                    <StackPanel>
+                        <CheckBox x:Name="id_C" Content="ID" FontSize="12" Margin="10,20,468.6,20" Height="34" RenderTransformOrigin="0.5,0.5" Background="#FF4AB73A">
+                            <CheckBox.LayoutTransform>
+                                <ScaleTransform ScaleX="2" ScaleY="2" />
+                            </CheckBox.LayoutTransform>
+                        </CheckBox>
+                        <CheckBox x:Name="FIO_C" Content="ФИО" FontSize="12" Margin="10,-40,468.6,20" Height="34" RenderTransformOrigin="0.5,0.5" Background="#FF4AB73A">
+                            <CheckBox.LayoutTransform>
+                                <ScaleTransform ScaleX="2" ScaleY="2" />
+                            </CheckBox.LayoutTransform>
+                        </CheckBox>
+                        <CheckBox x:Name="dol_C" Content="Должность" FontSize="12" Margin="10,-40,439.6,20" Height="34" RenderTransformOrigin="0.5,0.5" Background="#FF4AB73A">
+                            <CheckBox.LayoutTransform>
+                                <ScaleTransform ScaleX="2" ScaleY="2" />
+                            </CheckBox.LayoutTransform>
+                        </CheckBox>
+                        <CheckBox x:Name="grafic_C" Content="График" FontSize="12" Margin="10,-40,439.6,20" Height="34" RenderTransformOrigin="0.5,0.5" Background="#FF4AB73A">
+                            <CheckBox.LayoutTransform>
+                                <ScaleTransform ScaleX="2" ScaleY="2" />
+                            </CheckBox.LayoutTransform>
+                        </CheckBox>
+                        <CheckBox x:Name="zadachi_C" Content="Задачи" FontSize="12" Margin="220,-369,242.6,20" Height="34" RenderTransformOrigin="0.5,0.5" Background="#FF4AB73A">
+                            <CheckBox.LayoutTransform>
+                                <ScaleTransform ScaleX="2" ScaleY="2" />
+                            </CheckBox.LayoutTransform>
+                        </CheckBox>
+                        <CheckBox x:Name="zadacha_C" Content="Задача" FontSize="12" Margin="220,-274,242.6,20" Height="34" RenderTransformOrigin="0.5,0.5" Background="#FF4AB73A" Checked="zadacha_C_Checked" Unchecked="zadacha_C_Unchecked">
+                            <CheckBox.LayoutTransform>
+                                <ScaleTransform ScaleX="2" ScaleY="2" />
+                            </CheckBox.LayoutTransform>
+                        </CheckBox>
+                        <CheckBox x:Name="dopinf_C" Content="Дополнительная информация" FontSize="12" Margin="220,-178,-28.4,20" Height="34" RenderTransformOrigin="0.5,0.5" Background="#FF4AB73A">
+                            <CheckBox.LayoutTransform>
+                                <ScaleTransform ScaleX="2" ScaleY="2"/>
+                            </CheckBox.LayoutTransform>
+                        </CheckBox>
+                        <CheckBox x:Name="zarplata_C" Content="Зарпалата" FontSize="12" Margin="220,-86,-28.4,20" Height="34" Background="#FF4AB73A">
+                            <CheckBox.LayoutTransform>
+                                <ScaleTransform ScaleX="2" ScaleY="2" />
+                            </CheckBox.LayoutTransform>
+                        </CheckBox>
+                        <Button x:Name="OTCHET" Content="Подготовить отчет" Background="#478ac9" Margin="185,0,225.6,0" Height="44" FontSize="18" Click="OTCHET_Click">
+                            <Button.Effect>
+                                <DropShadowEffect Color="#FF9D8B8B" BlurRadius="10" ShadowDepth="0"/>
+                            </Button.Effect>
+                        </Button>
+                    </StackPanel>
+                </Border>
+                <Border x:Name="id_ZAD" Background="#cde3f7" Margin="675,-730,0,0" Height="60" RenderTransformOrigin="0.5,0.5" Visibility="Hidden">
+                    <StackPanel>
+                        <Label Content="idЗадачи:" FontSize="20" Margin="10,10,121.6,0" Height="35"/>
+                        <TextBox x:Name="id_Text2" Margin="30,-40,29.8,0" HorizontalAlignment="Center" Height="28" RenderTransformOrigin="0.5,0.5" Width="38"/>
+                    </StackPanel>
+                </Border>
+                <Border x:Name="Border_Otchet1" Background="#cde3f7" CornerRadius="20" Margin="284,-320,10,-150" Height="172" Visibility="Hidden">
+                    <StackPanel>
+                        <CheckBox x:Name="sum_C" Content="Сумма зарплаты" FontSize="12" Margin="20,00,-28.4,20" Height="34" Background="#FF4AB73A" Visibility="Hidden">
+                            <CheckBox.LayoutTransform>
+                                <ScaleTransform ScaleX="2" ScaleY="2" />
+                            </CheckBox.LayoutTransform>
+                        </CheckBox>
+                        <CheckBox x:Name="izm_C" Content="Изменения" FontSize="12" Margin="20 -40,-28.4,20" Height="34" Background="#FF4AB73A">
+                            <CheckBox.LayoutTransform>
+                                <ScaleTransform ScaleX="2" ScaleY="2" />
+                            </CheckBox.LayoutTransform>
+                        </CheckBox>
+                        <CheckBox x:Name="sotrudnik_C" Content="Количество сотрудников" FontSize="12" Margin="20 -40,-28.4,20" Height="34" Background="#FF4AB73A">
+                            <CheckBox.LayoutTransform>
+                                <ScaleTransform ScaleX="2" ScaleY="2" />
+                            </CheckBox.LayoutTransform>
+                        </CheckBox>
+                        <CheckBox x:Name="all_C" Content="Все задачи" FontSize="12" Margin="372,-180,-28.4,20" Height="34" Background="#FF4AB73A">
+                            <CheckBox.LayoutTransform>
+                                <ScaleTransform ScaleX="2" ScaleY="2" />
+                            </CheckBox.LayoutTransform>
+                        </CheckBox>
+                    </StackPanel>
+                </Border>
+
+                <Border Name="sotr" Margin="220,-620,5,-132" Height="489" CornerRadius="10" Background="#cde3f7">
+                    <StackPanel Height="513" VerticalAlignment="Top" >
+                        <DataGrid x:Name="datagridd" Height="200" Margin="25,10,25.6,0" ItemsSource="{Binding}">
+                            <DataGrid.Resources>
+                                <Style TargetType ="{x:Type DataGridColumnHeader}">
+                                    <Setter Property="Background" Value="#478ac9"/>
+                                    <Setter Property="BorderThickness"  Value="0 0 1 2"/>
+                                    <Setter Property="BorderBrush" Value="#7934bf"/>
+                                </Style>
+                            </DataGrid.Resources>
+                        </DataGrid>
+                        <Label x:Name="s1" Content="id сотрудника: " FontSize="18" Margin="20 40 535 0" Width="136"/>
+                        <Label x:Name="s2" Content="Должность: " FontSize="18" Margin="20 10 560 0" Width="115"/>
+                        <Label x:Name="s3" Content="График: " FontSize="18" Margin="20 10 600 0" Width="78"/>
+                        <Label x:Name="s4" Content="Зарплата: " FontSize="18" Margin="20 10 570 0" Width="103"/>
+                        <TextBox x:Name="ss1" Margin="-290 -153 59 200" Width="40" />
+                        <TextBox x:Name="ss2" Margin="-330 -100 59 200" Width="80" />
+                        <ComboBox Name="ss3" Margin="-360 -400 59 100" Width="80" >
+                            <TextBlock>2/2</TextBlock>
+                            <TextBlock>4/4</TextBlock>
+                            <TextBlock>5/2</TextBlock>
+                            <TextBlock>2/3</TextBlock>
+                        </ComboBox>
+                        <ComboBox Name="ss4" Margin="-230 -490 59 100" Width="140" >
+                            <TextBlock>Офисный работник</TextBlock>
+                            <TextBlock>Менеджер</TextBlock>
+                            <TextBlock>Бухгалтер</TextBlock>
+                            <TextBlock>Секретарь</TextBlock>
+                            <TextBlock>Стажировщик</TextBlock>
+                        </ComboBox>
+                        <Button x:Name="db" Background="#478ac9" Height="30" Margin="65 -200 500 100" Click="db_sotr" Content="Добавить">
+                            <Button.Effect>
+                                <DropShadowEffect Color="#FF9D8B8B" BlurRadius="10" ShadowDepth="0"/>
+                            </Button.Effect>
+                        </Button>
+
+                        <Border Name="stat" Height="152" Margin="300 -500 5 100">
+                            <StackPanel>
+                                <Label x:Name="st1" Content="id сотрудника: " FontSize="18" Margin="-100,15,40,105" Width="135"/>
+                                <TextBox x:Name="st1d" Margin="190,-130,160.4,108" Width="40" Height="24" />
+                                <Label x:Name="st2" Content="Изменить статус: " FontSize="18" Margin="-80,-250,40,-100" Width="155" Height="34"/>
+                                <ComboBox Name="st2d" Margin="210 -250 40 -100" Width="140" >
+                                    <TextBlock>Сотрудник</TextBlock>
+                                    <TextBlock>Модератор</TextBlock>
+                                    <TextBlock>Администратор</TextBlock>
+                                </ComboBox>
+                                <Button x:Name="izm" Height="30" Margin="130 -150 130 -100" Click="izm_sotr" Content="Изменить">
+                                    <Button.Effect>
+                                        <DropShadowEffect Color="#FF9D8B8B" BlurRadius="10" ShadowDepth="0"/>
+                                    </Button.Effect>
+                                </Button>
+                            </StackPanel>
+                        </Border>
+
+                        <Label x:Name="stx" Content="id сотрудника: " FontSize="18" Margin="320 -380 130 0" Width="135" Height="38"/>
+                        <TextBox x:Name="stx1" Margin="485 -385 130 0" Width="40" Height="28" />
+                        <Button x:Name="uvol" Height="30" Margin="440 -285 130 0" Background="#b53e3e" Click="uvol_str" Content="Уволить">
+                            <Button.Effect>
+                                <DropShadowEffect Color="#FF9D8B8B" BlurRadius="10" ShadowDepth="0"/>
+                            </Button.Effect>
+                        </Button>
+
+                    </StackPanel>
+                </Border>
+
+                <Border Name="zadach" Margin="220,-620,5,-132" Height="496" CornerRadius="10" Background="#cde3f7" Visibility="Hidden">
+                    <StackPanel Height="513" VerticalAlignment="Top" >
+                        <DataGrid x:Name="datagridd2" Height="200" Margin="25,10,25.6,0" ItemsSource="{Binding}">
+                            <DataGrid.Resources>
+                                <Style TargetType ="{x:Type DataGridColumnHeader}">
+                                    <Setter Property="Background" Value="#478ac9"/>
+                                    <Setter Property="BorderThickness"  Value="0 0 1 2"/>
+                                    <Setter Property="BorderBrush" Value="#7934bf"/>
+                                </Style>
+                            </DataGrid.Resources>
+                        </DataGrid>
+                        <Label x:Name="z1" Content="id сотрудника: " FontSize="18" Margin="20 40 535 0" Width="136"/>
+                        <Label x:Name="z2" Content="Название: " FontSize="18" Margin="20 10 560 0" Width="115"/>
+                        <Label x:Name="z3" Content="Статус: " FontSize="18" Margin="20 10 600 0" Width="78"/>
+                        <TextBox x:Name="zz1" Margin="-290 -109 59 200" Width="40" />
+                        <TextBox Name="zz4" Margin="-270 -243 59 100" Width="140" Height="26" />
+                        <ComboBox Name="zz3" Margin="-325 -158 59 100" Width="140" >
+                            <TextBlock>Выполняется</TextBlock>
+                            <TextBlock>Приостановлено</TextBlock>
+                            <TextBlock>Выполнено</TextBlock>
+                            <TextBlock>Провалено</TextBlock>
+                        </ComboBox>
+
+                        <Button x:Name="dbz" Height="30" Background="#478ac9" Margin="65 -60 500 100" Content="Добавить" Click="dbz_Click">
+                            <Button.Effect>
+                                <DropShadowEffect Color="#FF9D8B8B" BlurRadius="10" ShadowDepth="0"/>
+                            </Button.Effect>
+                        </Button>
+                        <Label x:Name="z4" Content="Дата: " FontSize="18" Margin="150 -570 0 0" Width="136" Height="30"/>
+                        <DatePicker x:Name="zz5" Margin="230 -565 0 0" Width="112" Height="27" />
+                        <Label x:Name="z5" Content="Описание: " FontSize="18" Margin="110 -490 0 0" Width="98" Height="29"/>
+                        <RichTextBox Name="zz6" Margin="290 -320 0 0" Width="277" Height="128" Background="White"/>
+                    </StackPanel>
+                </Border>
+
+
+
+                <Border x:Name="Borderr_4" CornerRadius="20" Margin="0,-575,5,-432"  Height="220" Width="231" HorizontalAlignment="Left">
+                    <StackPanel>
+                        <Button x:Name="zd" Content="+Задачи" Background="#478ac9" Margin="15 15" Click="zadach_Clic" Height="45" Width="201" HorizontalAlignment="Center" FontSize="18"/>
+                        <Button x:Name="sotrr" Content="+Сотрудники" Background="#478ac9" Margin="15 0" Height="45" HorizontalAlignment="Left" FontSize="18" Width="201" Click="Sotr_Click"/>
+                        <Button x:Name="vpl" Content="Выплаты" Background="#478ac9" Margin="15 15" Click="vplt_Click" Height="45" HorizontalAlignment="Left" FontSize="18" Width="201"/>
+                    </StackPanel>
+
+                </Border>
+
+
+                <Border Name="vplt" Margin="220,-620,5,-132" Height="496" CornerRadius="10" Background="#cde3f7" Visibility="Hidden">
+                    <StackPanel Height="513" VerticalAlignment="Top" >
+                        <DataGrid x:Name="datagridd3" Height="200" Margin="25,10,25.6,0" ItemsSource="{Binding}">
+                            <DataGrid.Resources>
+                                <Style TargetType ="{x:Type DataGridColumnHeader}">
+                                    <Setter Property="Background" Value="#478ac9"/>
+                                    <Setter Property="BorderThickness"  Value="0 0 1 2"/>
+                                    <Setter Property="BorderBrush" Value="#7934bf"/>
+                                </Style>
+                            </DataGrid.Resources>
+                        </DataGrid>
+                        <Label x:Name="v1" Content="Зарплата" FontSize="18" Margin="53,100,527.2,0" Height="30"/>
+                        <Button x:Name="v2" Height="30" Background="#478ac9" Margin="30,5,527.2,15" FontSize="16" Content="Выплатить" Click="v2_Click">
+                            <Button.Effect>
+                                <DropShadowEffect Color="#FF9D8B8B" BlurRadius="10" ShadowDepth="0"/>
+                            </Button.Effect>
+                        </Button>
+                        <Label x:Name="v3" Content="Премия" FontSize="18" Margin="290 -120 0 0" Width="76" Height="30"/>
+                        <Label x:Name="v4" Content="id сотрудника:" FontSize="18" Margin="180 -40 0 0" Width="129" Height="30"/>
+                        <TextBox Name="v6" Margin="340 -37 0 0" Width="35" Height="27" />
+                        <Label x:Name="v7" Content="Сумма:" FontSize="18" Margin="180 5 0 0" Width="129" Height="30"/>
+                        <TextBox Name="v8" Margin="290 -30 0 0" Width="103" Height="29" />
+                        <Button x:Name="v9" Background="#478ac9" Height="30" Margin="290 30 0 0" Click="vpltp_Click" Width="113" Content="Выплатить">
+                            <Button.Effect>
+                                <DropShadowEffect Color="#FF9D8B8B" BlurRadius="10" ShadowDepth="0"/>
+                            </Button.Effect>
+                        </Button>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>
